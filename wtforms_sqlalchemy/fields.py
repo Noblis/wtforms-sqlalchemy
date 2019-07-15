@@ -8,7 +8,7 @@ import operator
 from wtforms import widgets
 from wtforms.compat import text_type, string_types
 from wtforms.fields import SelectFieldBase
-from wtforms.validators import ValidationError
+from wtforms.validators import ValidationError, StopValidation
 
 try:
     from sqlalchemy.orm.util import identity_key
