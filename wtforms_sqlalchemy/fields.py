@@ -177,8 +177,9 @@ class QuerySelectMultipleField(QuerySelectField):
         self._formdata = set(valuelist)
 
     def pre_validate(self, form):
+        data = self.data    # need to run _get_data
         if self._invalid_formdata:
-            raise ValidationError(self.gettext('Not a valid choice'))
+            raise StopValidation(self.gettext('Not a valid choice'))
         elif self.data:
             obj_list = list(x[1] for x in self._get_object_list())
             for v in self.data:
